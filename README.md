@@ -4,6 +4,7 @@ que podrá ser usado hasta por un niño.
 
 
 FUNCIONALIDADES
+
 ●Login, los usuarios contarán con un perfil para ingresar a la red social, con
 usuario y contraseña.
 
