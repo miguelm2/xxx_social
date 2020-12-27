@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="xxx_social" transaction-type="RESOURCE_LOCAL">
+		<class>modelo.Administrador</class>
+		<class>modelo.Amigo</class>
+		<class>modelo.Chat</class>
+		<class>modelo.Ciudad</class>
+		<class>modelo.Comentario</class>
+		<class>modelo.Mensaje</class>
+		<class>modelo.Pai</class>
+		<class>modelo.Publicacion</class>
+		<class>modelo.Solicitud</class>
+		<class>modelo.Usuario</class>
+		<properties>
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/u605368170_red"/>
+			<property name="javax.persistence.jdbc.user" value="root"/>
+			<property name="javax.persistence.jdbc.password" value="deQ7qzsyRAv2e86F"/>
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+		</properties>
+	</persistence-unit>
+</persistence>

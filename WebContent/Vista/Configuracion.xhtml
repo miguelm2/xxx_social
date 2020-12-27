@@ -1,0 +1,151 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"> 
+
+      <h:head>
+              <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<ui:include src="css/configuracion_style.css" />
+<style>
+body
+{
+color:black;
+}
+</style>
+      </h:head>
+      
+      <h:body>
+      
+      <div id="contenedor" >
+     
+		<header>
+      <H2>X SOCIAL</H2>
+      </header>
+      
+        <nav>
+<ui:include src="nav.xhtml" />
+      </nav>
+      
+	<section id="contenido" title="Configuracion" style="height:540px; ">
+	<article>
+	
+<p:layout style="height:520px;">
+   
+    <p:layoutUnit position="west" size="500" maxSize="300">
+   	<h:form>
+    <p:growl id="msgs" showDetail="true" />
+ 
+  <p:panelGrid columns="2"  >
+    <f:facet name="header">
+        <p:graphicImage  style="align: center; height: 180px; width:200px;" value="perfil.png"/>
+    </f:facet>
+ 
+    <h:outputText value="Nombre:" />
+    <h:outputText value="#{controlDeUsuarios.user.nombre}" />
+ 
+    <h:outputText value="Correo:" />
+    <h:outputText value="#{controlDeUsuarios.user.correo}" />
+ 
+    <h:outputText value="Edad:" />
+    <h:outputText value="#{controlDeUsuarios.user.edad}" />
+ 
+    <h:outputText value="Pais" />
+    <h:outputText value="#{controlDeUsuarios.user.pais}" />
+       
+        <h:outputText value="Ciudad" />
+        <h:outputText value="#{controlDeUsuarios.user.ciudad}" />
+       
+        <h:outputText value="Situacion Sentimental" />
+        <h:outputText value="#{controlDeUsuarios.user.situacionSentimental}" />
+</p:panelGrid>
+</h:form>
+    </p:layoutUnit>
+    <p:layoutUnit position="center" width="500px">
+      
+ <h:form>
+
+ <p:panel header="Editar Perfil" style="margin-bottom:10px;">
+
+        	<br/>
+        
+
+		<p:fileUpload style="width:710px" mode="advanced" dragDropSupport="false"
+          sizeLimit="1000000" fileLimit="1" allowTypes="/(\.|\/)(jpeg|jpg|png)$/" 
+          label="Cambiar foto" uploadLabel="Subir" cancelLabel="Cancelar"
+           fileLimitMessage="Solo se puede escoger una foto" 
+           invalidFileMessage="Archivo Invalido"   update="messages" />
+ 		
+ 		<p:growl id="messages" showDetail="true" />  
+ 		
+  
+	<br/>
+	<p:separator/>
+	<h:panelGrid class="panelGridCenter"   columns="4" cellpadding="10" >
+  			<h:outputText value="Nombre:  	" class="separar"/>
+        <p:inputText id="nombre" value="#{controlDeUsuarios.user.nombre}" class="separar"/>
+		
+		<h:outputText value="Correo:  	"  />
+        <p:inputText id="correo" value="#{controlDeUsuarios.user.correo}" class="separar" require="true"/>
+     
+           
+        
+		<h:outputText value="Edad:  	" class="separar"/>
+        <p:inputText id="edad" value="#{controlDeUsuarios.user.edad}"  class="separar" require="true"/>
+         
+        <h:outputText value="Clave: "  />
+        <p:inputText id="clave" feedback="true" value="#{controlDeUsuarios.user.clave}"  class="separar" require="true"/>
+
+
+         <p:outputLabel for="country" value="Pais:  " />
+            <p:selectOneMenu id="country"  value="#{controlDeUsuarios.user.pais}"  onchange="#{controlDeUsuarios.consultarCiudades(controlDeUsuarios.userRegistro.pais)}" >
+                <f:selectItem itemLabel="Seleccionar Pais" noSelectionOption="true"  />
+                <f:selectItems value="#{controlDeUsuarios.consutarPaises()}" var="pais"  itemValue="#{pais.nombre}" itemLabel="#{pais.nombre}"/>
+            </p:selectOneMenu>
+ 
+            <p:outputLabel  value="Ciudad:  " />
+            <p:selectOneMenu   value="#{controlDeUsuarios.user.ciudad}" >
+                <f:selectItem itemLabel="Seleccionar Ciudad" noSelectionOption="true"  />
+                <f:selectItems value="" var=""  itemValue="#" itemLabel=""/>
+            </p:selectOneMenu>
+          
+          
+            <p:outputLabel  value="Situacion Sentimental  " />
+            <p:selectOneMenu   value="#{controlDeUsuarios.user.situacionSentimental}" >
+                <f:selectItem itemLabel="Seleccionar..." noSelectionOption="true"  />
+                <f:selectItem   itemValue="Soltero" itemLabel="Soltero"/>
+                <f:selectItem   itemValue="Casado" itemLabel="Casado"/>
+                 <f:selectItem   itemValue="Divorcidado" itemLabel="Divorciado"/>
+                
+            </p:selectOneMenu>
+  		   </h:panelGrid>
+  		 
+         		        <p:separator />
+      <br/>
+    <p:commandButton value="Guardar"   action="#{controlDeUsuarios.actualizar()}" style="  margin-right:50px;" />
+        <p:commandButton value="Eliminar Cuenta"  action="#{controlDeUsuarios.eliminar()}" >
+          <p:confirm header="Confirmation" message="Esta seguro de Eliminar su Cuenta?" icon="ui-icon-alert" />
+        </p:commandButton>
+         <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+        <p:commandButton value="Si" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+        <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+    </p:confirmDialog>
+        
+              <br/>
+        
+         		       
+ </p:panel>
+ </h:form>
+
+</p:layoutUnit>
+</p:layout>
+</article>
+</section>
+
+
+   
+      </div>
+      
+      </h:body>
+     
+      </html>

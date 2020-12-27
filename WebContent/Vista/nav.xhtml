@@ -1,0 +1,36 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"> 
+
+    
+        
+ <h:form>  
+    <p:growl id="messages"/>
+        <p:menubar>
+    
+ <p:menuitem value="Inicio" url="tablero.xhtml" icon="ui-icon-home" />
+  
+   <p:submenu label="Perfil" icon="ui-icon-pencil">
+               <p:menuitem value="Mi Perfil" url="Perfil.xhtml"  icon="ui-icon-person"  />
+            <p:menuitem value="Mensajes" url="#" icon="ui-icon-newwin" />
+            <p:menuitem value="Solicitudes" url="#"  icon="ui-icon-star" />
+        </p:submenu>
+   
+  
+   <p:menuitem value="Configuracion" url="Configuracion.xhtml" icon="ui-icon-gear" />
+  
+        <f:facet name="options">
+            <p:inputText style="margin-right:40px; width:500px;" value="#{controlDeUsuarios.busqueda}" required="true" placeholder="Buscar" />
+           	<p:commandButton   action="#{controlDeUsuarios.buscar()}" style="width:110px;"  value="Buscar" icon="ui-icon-search" />
+           	
+            
+            	
+            </f:facet>
+            <p:menuitem  action="#{controlDeUsuarios.salir()}" style="width:90px;"  value="Salir" icon="ui-icon-extlink" />
+      
+       
+    </p:menubar>
+</h:form>
+</html>

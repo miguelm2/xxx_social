@@ -1,0 +1,73 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"> 
+
+      <h:head>
+		<ui:include src="css/perfil_style.css" />
+              <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+      </h:head>
+      
+      <h:body>
+      
+      <div id="contenedor" >
+     
+		<header>
+      <H2>X SOCIAL</H2>
+      </header>
+       <h:form>  
+      
+        <nav>
+<ui:include src="nav.xhtml" />
+      </nav>
+      
+	<section id="contenido">
+	<article>
+    <p:growl id="msgs" showDetail="true" />
+ 
+    <p:dataTable id="tabla" var="usuario" value="#{controlDeUsuarios.resultado}">
+        <f:facet name="header">
+            Resultados
+        </f:facet>
+        <p:column headerText="Nombre">
+            <h:outputText value="#{usuario.nombre}" />
+        </p:column>
+        <p:column headerText="Correo">
+            <h:outputText value="#{usuario.correo}" />
+        </p:column>
+        <p:column headerText="Edad">
+            <h:outputText value="#{usuario.edad}" />
+        </p:column>
+        <p:column headerText="Pais">
+            <h:outputText value="#{usuario.pais}" />
+        </p:column>
+         <p:column headerText="Ciudad">
+            <h:outputText value="#{usuario.ciudad}" />
+        </p:column>
+        <p:column style="width:32px;text-align: center"> 
+             <p:commandButton  icon="ui-icon-search" title="Ver Perfil" action="#{controlDeUsuarios.sepuedeVisitar()}" >
+                       
+            <f:setPropertyActionListener value="#{usuario}" target="#{controlDeUsuarios.userAmigo}" />
+ </p:commandButton>
+           
+        </p:column>
+    </p:dataTable>
+    
+</article>
+	</section>
+ 
+    </h:form>
+	
+	
+      
+      
+      
+      <footer>
+      <H2>FOOTER</H2>
+      </footer>
+      </div>
+      
+      </h:body>
+      </html>

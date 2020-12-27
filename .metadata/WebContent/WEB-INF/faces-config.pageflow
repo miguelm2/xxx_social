@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf15245009721290" configfile="/xxx_social/WebContent/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="Vista/Ingresar.xhtml" x="9" y="24" id="pf15249764749330" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf15249764749341" path="/Vista/Ingresar.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="Vista/tablero.xhtml" x="12" y="204" id="pf15249764749342" referenceLink="//@navigationRule.9/@fromViewId|" outlinks="pf15252929522010 pf15255770506333" inlinks="pf15249764749341 pf15255340105852 pf15255352120053" path="/Vista/tablero.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="Vista/Registro.xhtml" x="132" y="24" id="pf15252723453066" referenceLink="//@navigationRule.4/@fromViewId|" outlinks="pf15255340105852" path="/Vista/Registro.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="Vista/Salida.xhtml" x="444" y="199" id="pf15252929522021" referenceLink="//@navigationRule.17/@navigationCase.0/@toViewId|" inlinks="pf15252929522010 pf15252938093992 pf15255325547050 pf15255396280334 pf15256671517190 pf15257516961570 pf15257516961571" path="/Vista/Salida.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="Vista/Perfil.xhtml" x="624" y="288" id="pf15252938093993" referenceLink="//@navigationRule.13/@fromViewId|" outlinks="pf15252938093992 pf15255770023342 pf15257349495530 pf15257384565763" inlinks="pf15257360929772" path="/Vista/Perfil.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="Vista/Configuracion.xhtml" x="199" y="264" id="pf15255325547061" referenceLink="//@navigationRule.7/@fromViewId|" outlinks="pf15255325547050 pf15255352120053 pf15255396280334 pf15255763094130" path="/Vista/Configuracion.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="Vista/Buscar.xhtml" x="444" y="24" id="pf15255763094131" referenceLink="//@navigationRule.18/@fromViewId|" outlinks="pf15256671517190 pf15257540722144" inlinks="pf15255763094130 pf15255770023342 pf15255770506333 pf15257516961572 pf15257516961573" path="/Vista/Buscar.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="Vista/Publicacion.xhtml" x="792" y="199" id="pf15257349495531" referenceLink="//@navigationRule.17/@fromViewId|" outlinks="pf15257360929772 pf15257516961573 pf15257516961571" inlinks="pf15257349495530" path="/Vista/Publicacion.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="Vista/DetallePublicacion.xhtml" x="744" y="24" id="pf15257384565764" referenceLink="//@navigationRule.16/@fromViewId|" outlinks="pf15257516961572 pf15257516961570" inlinks="pf15257384565763" path="/Vista/DetallePublicacion.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="Vista/PerfilAmigo.xhtml" x="264" y="24" id="pf15257540722145" referenceLink="//@navigationRule.18/@navigationCase.0/@toViewId|" inlinks="pf15257540722144" path="/Vista/PerfilAmigo.xhtml"/>
+  <links id="pf15249764749341" target="pf15249764749342" source="pf15249764749330" outcome="true" fromaction="#{controlDeUsuarios.inicio()}"/>
+  <links id="pf15252929522010" target="pf15252929522021" source="pf15249764749342" outcome="true" fromaction="#{controlDeUsuarios.salir()}"/>
+  <links id="pf15252938093992" target="pf15252929522021" source="pf15252938093993" outcome="true" fromaction="#{controlDeUsuarios.salir()}"/>
+  <links id="pf15255325547050" target="pf15252929522021" source="pf15255325547061" outcome="true" fromaction="#{controlDeUsuarios.eliminar()}"/>
+  <links id="pf15255340105852" target="pf15249764749342" source="pf15252723453066" outcome="true" fromaction="#{controlDeUsuarios.registro()}"/>
+  <links id="pf15255352120053" target="pf15249764749342" source="pf15255325547061" outcome="true" fromaction="#{controlDeUsuarios.actualizar()}"/>
+  <links id="pf15255396280334" target="pf15252929522021" source="pf15255325547061" outcome="true" fromaction="#{controlDeUsuarios.salir()}"/>
+  <links id="pf15255763094130" target="pf15255763094131" source="pf15255325547061" outcome="true" fromaction="#{controlDeUsuarios.buscar()}"/>
+  <links id="pf15255770023342" target="pf15255763094131" source="pf15252938093993" outcome="true" fromaction="#{controlDeUsuarios.buscar()}"/>
+  <links id="pf15255770506333" target="pf15255763094131" source="pf15249764749342" outcome="true" fromaction="#{controlDeUsuarios.buscar()}"/>
+  <links id="pf15256671517190" target="pf15252929522021" source="pf15255763094131" outcome="true" fromaction="#{controlDeUsuarios.salir()}"/>
+  <links id="pf15257349495530" target="pf15257349495531" source="pf15252938093993" outcome="true" fromaction="#{controlDeUsuarios.sepuedeEditar()}"/>
+  <links id="pf15257360929772" target="pf15252938093993" source="pf15257349495531" outcome="true" fromaction="#{controlDeUsuarios.editarPublicacion()}"/>
+  <links id="pf15257384565763" target="pf15257384565764" source="pf15252938093993" outcome="true" fromaction="#{controlDeUsuarios.sepuedeVer()}"/>
+  <links id="pf15257516961572" target="pf15255763094131" source="pf15257384565764" outcome="true" fromaction="#{controlDeUsuarios.buscar()}"/>
+  <links id="pf15257516961573" target="pf15255763094131" source="pf15257349495531" outcome="true" fromaction="#{controlDeUsuarios.buscar()}"/>
+  <links id="pf15257516961570" target="pf15252929522021" source="pf15257384565764" outcome="true" fromaction="#{controlDeUsuarios.salir()}"/>
+  <links id="pf15257516961571" target="pf15252929522021" source="pf15257349495531" outcome="true" fromaction="#{controlDeUsuarios.salir()}"/>
+  <links id="pf15257540722144" target="pf15257540722145" source="pf15255763094131" outcome="true" fromaction="#{controlDeUsuarios.sepuedeVisitar()}"/>
+</pageflow:Pageflow>

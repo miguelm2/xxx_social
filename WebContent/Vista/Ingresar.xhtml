@@ -1,0 +1,60 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"> 
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <h:head>
+<ui:include src="header.xhtml" />
+</h:head>
+
+<style>
+.panelGridCenter {
+    margin: 0 auto;
+}
+#f{
+aling:center;
+width:550px;
+position:center;
+}
+#centrar{
+position: absolute;        
+		left: 27%;                
+	margin:20px;
+	
+}
+#correo{
+width:2000px;
+}
+</style>
+
+
+<h:body>
+<div id="centrar">
+<h:form id="f">
+    <p:panel header="Inicio de Sesion" style="margin-bottom:10px; text-align:center;">
+		
+        <h:panelGrid class="panelGridCenter"  columns="2" cellpadding="5" style="position:center;" >
+        <div>
+	<p:messages autoUpdate="true"/>
+	</div>
+        <div>
+        <h:column/>
+        
+  			<h:outputText value="Correo:  	" />
+  			
+        <p:inputText  id="correo" required="true" value="#{controlDeUsuarios.correo}" />
+
+  		<h:outputText value="Clave: " />
+        <p:password id="clave" required="true" value="#{controlDeUsuarios.clave}"  />
+       </div>
+        <h:column/>
+        <h:column></h:column>
+    <p:commandButton value="Ingresar" action="#{controlDeUsuarios.inicio()}"  />
+  </h:panelGrid>
+ </p:panel>
+ </h:form>
+ </div>
+</h:body>
+      </html>

@@ -1,0 +1,100 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"> 
+
+      <h:head>
+		<ui:include src="css/tablero_style.css" />
+              <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      
+<style>
+#correr	{
+ margin-right: 15px;
+ background : black;
+}
+</style>
+      </h:head>
+      
+      <h:body>
+      
+      <div id="contenedor" >
+     
+		<header>
+      <H2>X SOCIAL</H2>
+      </header>
+      
+      <nav>
+<ui:include src="nav.xhtml" />
+      </nav>
+      
+	<section id="contenido">
+	<article>
+	
+
+
+<h:form >    
+	<p:panel header="Publicacion" style="aling:center;position:center"   >  
+	<p:messages id="messages" showDetail="true" closable="true">
+    </p:messages>  
+    <p:editor id="editor" converterMessage="2" requiredMessage="publicacion vacia!" required="true" widgetVar="editorWidget" style="position:center;" value="#{controlDeUsuarios.publicacion}" width="810" height="90" />
+ <br/>
+ 	
+        
+
+		<p:fileUpload style="color:black" mode="advanced" dragDropSupport="false"
+          sizeLimit="1000000" fileLimit="1" allowTypes="/(\.|\/)(jpeg|jpg|png)$/" 
+          label="Subir imagen" uploadLabel="Subir" cancelLabel="Cancelar"
+           fileLimitMessage="Solo se puede escoger una foto" 
+           invalidFileMessage="Archivo Invalido"   update="messages2" />
+ 		
+ 		<p:growl id="messages2" showDetail="true" />  
+ 		
+  
+	<br/>
+	<p:separator/>
+	
+    <h:panelGrid columns="2" style="margin-top: 10px">
+        <p:commandButton value="Publicar" update="messages" onsuccess="PF('editorWidget').clear();" action="#{controlDeUsuarios.publicar()}"  icon="ui-icon-disk" />
+ 
+        <p:commandButton value="Limpiar" type="button" onclick="PF('editorWidget').clear();" icon="ui-icon-close" />
+    </h:panelGrid>
+ </p:panel>   
+</h:form>
+
+
+
+	</article>
+	</section>
+	
+      <aside style="width:260px;" >
+<p:panelGrid columns="2" style="width:260px;">
+    <f:facet name="header" style="width:260px;">
+        <p:graphicImage  style="align: center; height: 180px; width: 180px" value="perfil.png"/>
+    </f:facet>
+ 
+    <h:outputText value="Nombre:" />
+    <h:outputText value="#{controlDeUsuarios.user.nombre}" />
+ 
+    <h:outputText value="Correo:" />
+    <h:outputText value="#{controlDeUsuarios.user.correo}" />
+ 
+    <h:outputText value="Edad:" />
+    <h:outputText value="#{controlDeUsuarios.user.edad}" />
+ 
+    <h:outputText value="Pais" />
+    <h:outputText value="#{controlDeUsuarios.user.pais}" />
+       
+        <h:outputText value="Ciudad" />
+        <h:outputText value="#{controlDeUsuarios.user.ciudad}" />
+		</p:panelGrid>
+      </aside>
+      
+      <p:separator></p:separator>
+      <footer>
+      <H2>FOOTER</H2>
+      </footer>
+      </div>
+      
+      </h:body>
+      </html>

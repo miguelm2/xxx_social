@@ -1,0 +1,73 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"> 
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <h:head>
+<ui:include src="header.xhtml" />
+</h:head>
+
+<style>
+.panelGridCenter {
+    margin: 0 auto;
+}
+
+
+#centrar{
+		position: absolute;        
+		left: 24%;                
+		margin:20px;
+	
+}
+
+</style>
+
+<h:body>
+<div id="centrar">
+<h:form>
+
+ <p:panel header="Registrarse" style="margin-bottom:10px; text-align:center;">
+
+        <h:panelGrid class="panelGridCenter"   columns="4" cellpadding="10" >
+
+
+
+  			<h:outputText value="Nombre:  	" class="separar"/>
+        <p:inputText id="nombre" value="#{controlDeUsuarios.userRegistro.nombre}" class="separar"/>
+		
+		<h:outputText value="Correo:  	"  />
+        <p:inputText id="correo" value="#{controlDeUsuarios.userRegistro.correo}" class="separar" require="true"/>
+     
+           
+        
+		<h:outputText value="Edad:  	" class="separar"/>
+        <p:inputText id="edad" value="#{controlDeUsuarios.userRegistro.edad}"  class="separar" require="true"/>
+         
+        <h:outputText value="Clave: "  />
+        <p:password id="clave" feedback="true" value="#{controlDeUsuarios.userRegistro.clave}"  class="separar" require="true"/>
+
+
+         <p:outputLabel for="country" value="Pais:  " />
+            <p:selectOneMenu id="country"  value="#{controlDeUsuarios.userRegistro.pais}"  onchange="#{controlDeUsuarios.consultarCiudades(controlDeUsuarios.userRegistro.pais)}" >
+                <f:selectItem itemLabel="Seleccionar Pais" noSelectionOption="true"  />
+                <f:selectItems value="#{controlDeUsuarios.consutarPaises()}" var="pais"  itemValue="#{pais.nombre}" itemLabel="#{pais.nombre}"/>
+            </p:selectOneMenu>
+ 
+            <p:outputLabel  value="Ciudad:  " />
+            <p:selectOneMenu   value="#{controlDeUsuarios.userRegistro.ciudad}" >
+                <f:selectItem itemLabel="Seleccionar Ciudad" noSelectionOption="true"  />
+                <f:selectItems value="" var=""  itemValue="#" itemLabel=""/>
+            </p:selectOneMenu>
+          
+  		   </h:panelGrid>
+  		 
+         		        <p:separator />
+       
+    <p:commandButton value="Registrarse"   action="#{controlDeUsuarios.registro()}" />
+ </p:panel>
+ </h:form>
+ </div>
+</h:body>
+      </html>

@@ -1,0 +1,60 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"> 
+
+      <h:head>
+		<ui:include src="css/publicacion_style.css" />
+              <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+      </h:head>
+      
+      <h:body>
+      
+      <div id="contenedor" >
+     
+		<header>
+      <H2>X SOCIAL</H2>
+      </header>
+      
+     <nav>
+<ui:include src="nav.xhtml" />
+      </nav>
+      
+      
+	<section id="contenido">
+	<article>
+	<h:form >    
+	<p:panel header="Editar Publicacion"  >  
+
+  		
+    <p:editor id="editor" converterMessage="2" requiredMessage="publicacion vacia!" required="true" widgetVar="editorWidget" style="position:center;" value="#{controlDeUsuarios.p.publicacion}"  height="100" />
+ 	<br/>
+ 	
+        
+
+		<p:fileUpload style="color:black" mode="advanced" dragDropSupport="false"
+          sizeLimit="1000000" fileLimit="1" allowTypes="/(\.|\/)(jpeg|jpg|png)$/" 
+          label="Cambiar foto" uploadLabel="Subir" cancelLabel="Cancelar"
+           fileLimitMessage="Solo se puede escoger una foto" 
+           invalidFileMessage="Archivo Invalido"   update="messages" />
+ 		
+ 		<p:growl id="messages" showDetail="true" />  
+ 		
+  
+	<br/>
+	<p:separator/>
+ 	
+    <h:panelGrid columns="2" style="margin-top: 10px">
+        <p:commandButton value="Guardar" update="messages" onsuccess="PF('editorWidget').clear();" action="#{controlDeUsuarios.editarPublicacion()}"  icon="ui-icon-disk" />
+ 
+        <p:commandButton value="Eliminar" type="button"  icon="ui-icon-close" />
+    </h:panelGrid>
+ </p:panel>   
+</h:form>
+	</article>
+	</section>
+	</div>
+	</h:body>
+	</html>

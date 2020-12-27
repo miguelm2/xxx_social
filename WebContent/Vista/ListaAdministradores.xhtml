@@ -1,0 +1,31 @@
+
+	<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"> 
+	
+<h:head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</h:head>
+<h:body>
+	<p:dataTable var="publicacion" value="#{controlDeUsuarios.consultarPublicaciones()}">
+     <f:facet name="header">
+       Mis Publicaciones
+    </f:facet>
+    <p:column headerText="Imagen">
+        <h:outputText value="#{publicacion.foto}" />
+    </p:column>
+ 
+    <p:column headerText="Publicacion">
+        <h:outputText value="#{publicacion.publicacion}" />
+    </p:column>
+ 
+    <p:column headerText="Edad">
+        <h:outputText value="#{persona.edad}" />
+    </p:column>
+
+</p:dataTable>
+
+</h:body>
+</html>
